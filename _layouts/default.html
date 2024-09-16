@@ -24,6 +24,16 @@
             </a>
              </li> 
           {% endfor %}
+
+          {% for tag in site.tags %}
+          <h3>{{ tag[0] }}</h3>
+          <ul>
+            {% for post in tag[1] %}
+              <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
           </ul>
         </nav>
 
@@ -35,15 +45,6 @@
           {% endfor %}
         </ul>
 
-        {% if site.github.is_project_page %}
-          <p class="header">This project is maintained by <a class="header name" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-
-        {% if site.github.is_user_page %}
-          <ul>
-            <li><a class="buttons github" href="{{ site.github.owner_url }}">GitHub Profile</a></li>
-          </ul>
-        {% endif %}
       </header>
 
       <section>
@@ -51,7 +52,6 @@
       </section>
 
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
