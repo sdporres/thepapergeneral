@@ -1,0 +1,20 @@
+---
+layout: page
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    {% for image in site.static_files %}
+    {% if image.path contains 'content' %}
+        <p>{{image.path}} - {{image.f}}</p>
+        <a href="{{site.baseurl}}{{image.path}}">cards</a>
+    {% endif %}
+    {% endfor %}
+
+  </body>
+</html>
