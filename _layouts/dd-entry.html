@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="page">
+
+  <a href="../domesday-book.html">Domesday Book</a>
+
+
+  {% assign section-entries = site.domesday-entries | where: "section", page.section %}
+  <ul class="horz">
+    {% for entry in section-entries %}
+    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% unless entry == section-entries.last %} - {% endunless %}
+    {% endfor %}
+  </ul>
+
+  <h1 class="page-title">{{ page.title }}</h1>
+  {{ content }}
+</div>
